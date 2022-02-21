@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.example.my_movie_db.fragment.home.HomeViewModel" />
+
+        <variable
+            name="item"
+            type="com.example.my_movie_db.models.MovieModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+
+        android:layout_width="match_parent"
+        android:layout_height="250dp">
+
+        <ImageView
+            android:id="@+id/ivBackdrop"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:onClick="@{() -> viewModel.onImageClicked(item)}"
+            android:scaleType="fitXY"
+            android:src="@drawable/sample_backdrop"
+            app:glideImage="@{item.backdrop_path}" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>
