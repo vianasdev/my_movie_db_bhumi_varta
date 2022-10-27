@@ -1,5 +1,6 @@
 package com.example.my_movie_db.fragment.home
 
+import android.graphics.Movie
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
@@ -12,7 +13,6 @@ class BannerAdapter(private val viewModel: HomeViewModel, private val items: Lis
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder =
         ViewHolder.createViewHolder(parent)
-
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) =
         holder.bind(viewModel, items[position])
@@ -36,4 +36,8 @@ class BannerAdapter(private val viewModel: HomeViewModel, private val items: Lis
             }
         }
     }
+}
+
+class BannerListener(val bannerClcked : (movie : MovieModel) -> MovieModel) {
+    fun onClick(movie:MovieModel) = bannerClcked(movie)
 }
